@@ -137,27 +137,26 @@ and Age >= 40
 ---võtab kolm esimest rida
 select top 3 * from Person
 
---- ?
+---  Valib ainult veerud „Vanus“ ja „Nimi“ ning tagastab esimesed 3 rida.
 select * from Person
 select top 3 Age, Name from Person
 
---- ?
+--- Valib tabelist Person välja 50% ridade ülemised read.
 select top 50 percent * from Person
---?
+--Sorteerib tabeli Person vanuse (Age) järgi, muutes selle INT
 select * from Person order by cast(Age as int)
 select * from Person order by Age
 
---?
+--Loeb kõigi vanuse väärtuste summat tabelis Person
 select sum(cast(Age as int)) from Person
 
---?
+--Leiab minimaalse vanuse väärtuse tabelis Person
 select min(cast(Age as int)) from Person
 
---?
+--Leiab maksimaalse vanuse väärtuse tabelis Person
 select max(cast(Age as int)) from Person
 
 select City, sum(cast(Age as int)) as TotalAge from Person group by City
-
 
 --- loome uued tabelid
 create table Department
