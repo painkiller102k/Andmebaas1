@@ -32,12 +32,13 @@ insert into Gender (Id, Gender)
 values (1, 'Female')
 insert into Gender (Id, Gender)
 values (2, 'Male')
+select * from Gender
 
---- ?
+--- lisab välisvõtme (constraint) tabelisse Person. See seob tabeli Person veergu GenderId tabeli Gender veergu Id.
 alter table Person add constraint tblPerson_GenderId_FK
 foreign key (GenderId) references Gender(Id)
 
--- ?
+-- väärtuste lisamine tabelisse Person
 insert into Person (Id, Name, Email, GenderId)
 values (1, 'Supermees', 's@s.com', 2)
 insert into Person (Id, Name, Email, GenderId)
@@ -56,11 +57,11 @@ values (7, 'Spiderman', 'spider@spiderman.com', 2)
 -- vaatame tabeli andmeid
 select * from Person
 
---- ?
+--- Eemaldab välisvõtme piirangu tabelist Person. seos tabeli Person veeru GenderId ja tabeli Gender veeru Id vahel eemaldatakse,
 alter table Person
 drop constraint tblPerson_GenderId_FK
 
--- ?
+-- andmete sisestamine tabelisse
 insert into Gender (Id, Gender)
 values (3, 'Unknown')
 -- lisame võõrvõtme uuesti
