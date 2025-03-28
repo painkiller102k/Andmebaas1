@@ -121,16 +121,16 @@ select * from Person where Age in (100, 50, 20)
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
--- ?
+-- Valib kõik inimesed tabelist Person, kelle e-posti väljal ei ole @-i.  
 select * from Person where Email not like '%@%'
 
 --- näitab, kelle on emailis ees ja peale @-märki
 -- ainult üks täht
 select * from Person where Email like '_@_.com'
 
---?
+--Valib kõik inimesed, kelle nimi EI alga tähtedega „W“, „A“ või „S“.
 select * from Person where Name like '[^WAS]%'
---- ?
+--- Valib kõik inimesed, kes: Elavad „Gotham'is“ või „New Yorgis“. On 40-aastased või vanemad.
 select * from Person where (City = 'Gotham' or City = 'New York')
 and Age >= 40
 
