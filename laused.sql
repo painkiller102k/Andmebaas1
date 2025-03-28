@@ -92,7 +92,7 @@ add constraint CK_Person_Age check (Age > 0 and Age < 150)
 insert into Person (Id, Name, Email, GenderId)
 values (9, 'Test', 'Test', 2)
 
---?
+---- See päring eemaldab tabelist Person kirje, mille väärtus veerus Id on 8.
 select * from Person
 go
 delete from Person where Id = 8
@@ -103,7 +103,7 @@ select * from Person
 alter table Person
 add City nvarchar(25)
 
--- ?
+-- näidata tabelit Person, kus City = Gotham
 select * from Person where City = 'Gotham'
 
 
@@ -111,13 +111,13 @@ select * from Person where City = 'Gotham'
 select * from Person where City <> 'Gotham'
 select * from Person where City != 'Gotham'
 
--- ?
+-- päringud valivad tabelist Person kõik inimesed, kelle vanus (Age) on 100, 50 või 20.
 select *from Person where Age = 100 or 
 Age = 50 or Age = 20
 select * from Person where Age in (100, 50, 20)
 
 
---- ?
+--- Valib kõik inimesed tabelist Person, kelle linn algab tähega 'n'.
 select * from Person where City like 'n%'
 select * from Person where Email like '%@%'
 
